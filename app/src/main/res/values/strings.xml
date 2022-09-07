@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">MySneakers</string>
+    <string name="nome_snk">Nome do Sneaker</string>
+    <string name="limpar">Limpar</string>
+    <string name="tamanho">Tamanho (número)</string>
+    <string name="marca">Marca</string>
+    <string name="colorway">Colorway</string>
+    <string name="preco_or">Preço Original</string>
+    <string name="preco_rev">Preço Revenda</string>
+    <string name="salvar">Salvar</string>
+    <string name="erro_nomesnk">Nome do Sneaker não pode ser vazio!</string>
+    <string name="erro_marca">Marca não pode ser vazio!</string>
+    <string name="campo_limpos">Campos limpos!</string>
+    <string name="cb_possui">Já possui?</string>
+    <string name="cbpossui">Possui o SNK :)</string>
+    <string name="cbnpossui">Não possui o SNK :(</string>
+    <string name="snknovo">Novo</string>
+    <string name="snkpusado">Pouco Usado</string>
+    <string name="snkmusado">Muito Usado</string>
+    <string name="snkestnselecionado">Estado do SNK não selecionado</string>
+    <string name="tamcm">cm</string>
+    <string name="tamus">US</string>
+    <string name="tambr">BR</string>
+    <string name="tamuk">UK</string>
+    <string name="tameur">EUR</string>
+    <string name="tamtipo">"Tipo de tamanho: "</string>
+    <string name="tamtiponenhum">Nenhum tipo de tamanho foi selecionado</string>
+    <string name="tipotam">Tipo de tamanho</string>
+
+    <string name="nike">Nike</string>
+    <string name="adidas">Adidas</string>
+    <string name="asics">Asics</string>
+    <string name="new_balance">New Balance</string>
+    <string name="yeezy">Yeezy</string>
+    <string name="puma">Puma</string>
+    <string name="vans">Vans</string>
+    <string name="reebok">Reebok</string>
+    <string name="converse">Converse</string>
+    <string name="vert">Vert</string>
+
+    <string name="foi_clicado">" foi clicado!"</string>
+</resources>

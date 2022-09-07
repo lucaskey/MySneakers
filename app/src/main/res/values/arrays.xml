@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="marca">
+        <item>@string/nike</item>
+        <item>@string/nike</item>
+        <item>@string/adidas</item>
+        <item>@string/new_balance</item>
+        <item>@string/new_balance</item>
+        <item>@string/asics</item>
+        <item>@string/asics</item>
+        <item>@string/vans</item>
+        <item>@string/vans</item>
+        <item>@string/converse</item>
+    </string-array>
+
+    <string-array name="nome">
+        <item>Dunk low</item>
+        <item>Zoom Pegasus 38</item>
+        <item>Ultraboost v1</item>
+        <item>990 v3</item>
+        <item>2002 R</item>
+        <item>Gel Lyte III</item>
+        <item>Gel Lyte III</item>
+        <item>Ultrarange</item>
+        <item>Oldskool</item>
+        <item>Chucky Taylor 70</item>
+    </string-array>
+
+    <string-array name="tamanho">
+        <item>40</item>
+        <item>40</item>
+        <item>41</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>42</item>
+        <item>41</item>
+        <item>41</item>
+        <item>42</item>
+    </string-array>
+
+    <string-array name="colorway">
+        <item>Rose fossil</item>
+        <item>Black and Yellow</item>
+        <item>Burgundy</item>
+        <item>Vermelho</item>
+        <item>Verde</item>
+        <item>Mystic</item>
+        <item>Polar Shade</item>
+        <item>Preto</item>
+        <item>Preto azul</item>
+        <item>Off white</item>
+    </string-array>
+
+</resources>
