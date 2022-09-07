@@ -2,6 +2,7 @@ package com.example.mysneakers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -17,15 +18,15 @@ public class MainActivity2 extends AppCompatActivity {
 
         listViewSneakers = findViewById(R.id.listViewSneakers);
 
-        popularLista();
-
 //        listViewSneakers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//          @Override
-//          public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//              Sneakers sneakers = (Sneakers) listViewSneakers.getItemAtPosition(position);
-//              Toast.makeText(getApplicationContext(), sneakers.getMarca(), Toast.LENGTH_SHORT).show();
-//          }
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                Array marcasneakers = (Array) listViewSneakers.getItemAtPosition(position);
+//                Toast.makeText(getApplicationContext(), marcasneakers + getString(R.string.foi_clicado), Toast.LENGTH_SHORT).show();
+//            }
 //        });
+
+        popularLista();
 
     }
 
@@ -34,7 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
         String[] nomes = getResources().getStringArray(R.array.marca);
         String[] marcas = getResources().getStringArray(R.array.nome);
         String[] tamanhos = getResources().getStringArray(R.array.tamanho);
-        String[] colorways = getResources().getStringArray(R.array.colorway);
+        String [] colorways = getResources().getStringArray(R.array.colorway);
 
         ArrayList<Sneakers> sneakers = new ArrayList<>();
 
@@ -42,20 +43,14 @@ public class MainActivity2 extends AppCompatActivity {
             sneakers.add(new Sneakers(nomes[i], marcas[i], tamanhos[i], colorways[i]));
         }
 
-        SneakersAdapter sneakersAdapter = new SneakersAdapter(this, sneakers);
+        ArrayAdapter<Sneakers> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, sneakers);
 
-        listViewSneakers.setAdapter(sneakersAdapter);
+        listViewSneakers.setAdapter(adapter);
 
     }
 
 }
 
-//        listViewSneakers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//          @Override
-//          public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//              Toast.makeText(getApplicationContext(), sneakers + getString(R.string.foi_clicado), Toast.LENGTH_SHORT).show();
-//          }
-//        });
 
 //            Toast.makeText(this,
 //                    "Marca= " + marcas[i] + "/n" +
