@@ -2,8 +2,11 @@ package com.example.mysneakers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,13 +21,13 @@ public class MainActivity2 extends AppCompatActivity {
 
         listViewSneakers = findViewById(R.id.listViewSneakers);
 
-//        listViewSneakers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                Array marcasneakers = (Array) listViewSneakers.getItemAtPosition(position);
-//                Toast.makeText(getApplicationContext(), marcasneakers + getString(R.string.foi_clicado), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        listViewSneakers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Sneakers sneakersList = (Sneakers) listViewSneakers.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), sneakersList + "\n" + getString(R.string.foi_clicado), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         popularLista();
 
