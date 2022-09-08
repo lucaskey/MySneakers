@@ -39,4 +39,15 @@
     <string name="vert">Vert</string>
 
     <string name="foi_clicado">Foi clicado!</string>
+
+    <string name="novo_cadastro">Novo</string>
+    <string name="sobre">Sobre</string>
+    <string name="nome_aluno">Lucas Key Shibata Mitsudo</string>
+    <string name="curso_aluno">IF69S - Programação para Dispositivos Móveis - C91 (2022_02)</string>
+    <string name="email_aluno">lucasmitsudo@alunos.utfpr.edu.br</string>
+    <string name="sobre_app">Sobre o Aplicativo:</string>
+    <string name="descricao_app">Aplicativo foi criado para que o usuário tenha um controle da própria coleção de Sneakers.</string>
+    <string name="nome_utfpr">Universidade Técnológica Federal do Paraná (UTFPR)</string>
+    <string name="erro_abrir_site">Não foi possível abrir a página!</string>
+
 </resources>

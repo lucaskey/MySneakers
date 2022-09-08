@@ -3,137 +3,69 @@ package com.example.mysneakers;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editTextNomeSnk, editTextMarca, editTextTamanho, editTextColorway, editTextPrecoOg, editTextPrecoRev;
-    private CheckBox cbPossui;
-    private RadioGroup radioGroupEstado;
-    private Spinner spinnerTamanhos;
+    private ListView listViewSneakers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editTextNomeSnk = findViewById(R.id.editTextSnkNome);
-        editTextMarca = findViewById(R.id.editTextSnkMarca);
-        editTextTamanho = findViewById(R.id.editTextTamanho);
-        editTextColorway = findViewById(R.id.editTextSnkColorway);
-        editTextPrecoOg = findViewById(R.id.editTextPrecoOg);
-        editTextPrecoRev = findViewById(R.id.editTextPrecoRev);
+        listViewSneakers = findViewById(R.id.listViewSneakers);
 
-        cbPossui = findViewById(R.id.checkBoxPossui);
+        listViewSneakers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Sneakers sneakersList = (Sneakers) listViewSneakers.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), sneakersList + "\n" + getString(R.string.foi_clicado), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        radioGroupEstado = findViewById(R.id.radioGroupEstado);
-
-        spinnerTamanhos = findViewById(R.id.spinnerTamanhos);
-        popularSpinner();
+        popularLista();
 
     }
 
-    public void popularSpinner(){
-        ArrayList<String> lista = new ArrayList<>();
+    private void popularLista() {
 
-        lista.add(getString(R.string.tamcm));
-        lista.add(getString(R.string.tamus));
-        lista.add(getString(R.string.tambr));
-        lista.add(getString(R.string.tamuk));
-        lista.add(getString(R.string.tameur));
+        String[] nomes = getResources().getStringArray(R.array.marca);
+        String[] marcas = getResources().getStringArray(R.array.nome);
+        String[] tamanhos = getResources().getStringArray(R.array.tamanho);
+        String [] colorways = getResources().getStringArray(R.array.colorway);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lista);
+        ArrayList<Sneakers> sneakers = new ArrayList<>();
 
-        spinnerTamanhos.setAdapter(adapter);
+        for (int i = 0; i < nomes.length; i++) {
+            sneakers.add(new Sneakers(nomes[i], marcas[i], tamanhos[i], colorways[i]));
+        }
+
+        ArrayAdapter<Sneakers> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, sneakers);
+
+        listViewSneakers.setAdapter(adapter);
+
     }
 
-    public void salvarCampos(View view){
-        String nomeSnk = editTextNomeSnk.getText().toString();
-        String marca = editTextMarca.getText().toString();
-        String colorway = editTextColorway.getText().toString();
-        String tamanho = editTextTamanho.getText().toString();
-        String precoOg = editTextPrecoOg.getText().toString();
-        String precoRev = editTextPrecoRev.getText().toString();
-
-        String cbMensagem = "";
-
-        String rbMensagem = "";
-
-        String spMensagem = "";
-
-
-        if(marca == null||marca.trim().isEmpty()){
-            Toast.makeText(this, R.string.erro_marca, Toast.LENGTH_LONG).show();
-            editTextMarca.requestFocus();
-            return;
-        }
-
-        if(nomeSnk == null||nomeSnk.trim().isEmpty()) {
-            Toast.makeText(this, R.string.erro_nomesnk, Toast.LENGTH_LONG).show();
-            editTextNomeSnk.requestFocus();
-            return;
-        }
-
-
-        String ling = (String) spinnerTamanhos.getSelectedItem();
-        if (ling != null){
-            spMensagem = getString(R.string.tamtipo) + ling;
-        }else{
-            spMensagem = getString(R.string.tamtiponenhum);
-        }
-
-
-        switch (radioGroupEstado.getCheckedRadioButtonId()){
-            case R.id.radioButtonNovo:
-                rbMensagem = getString(R.string.snknovo);
-                break;
-            case R.id.radioButtonPUsado:
-                rbMensagem = getString(R.string.snkpusado);
-                break;
-            case R.id.radioButtonMUsado:
-                rbMensagem = getString(R.string.snkmusado);
-                break;
-            default:
-                rbMensagem = getString(R.string.snkestnselecionado);
-
-        }
-
-
-        if (cbPossui.isChecked()){
-            cbMensagem += getString(R.string.cbpossui);
-        }
-        if (cbMensagem.equals("")){
-            cbMensagem = getString(R.string.cbnpossui);
-        }
-
-
-        Toast.makeText(this,
-                        marca + "\n" + nomeSnk + "\n" + colorway + "\n" + spMensagem + "\n" + tamanho + "\n" + precoOg + "\n" + precoRev + "\n" + rbMensagem + "\n" + cbMensagem,
-                        Toast.LENGTH_LONG).show();
+    public void abrirSobre(View view){
+        SobreActivity.sobre(this);
     }
 
-    public void limparCampos(View view) {
-        editTextNomeSnk.setText(null);
-        editTextMarca.setText(null);
-        editTextTamanho.setText(null);
-        editTextColorway.setText(null);
-        editTextPrecoOg.setText(null);
-        editTextPrecoRev.setText(null);
-
-        cbPossui.setChecked(false);
-
-        radioGroupEstado.clearCheck();
-
-        editTextMarca.requestFocus();
-
-        Toast.makeText(this, R.string.campo_limpos, Toast.LENGTH_LONG).show();
+    public void adicionarSneaker(View view){
+        CadastroActivity.novoSneaker(this);
     }
 
 }
+
+
+//            Toast.makeText(this,
+//                    "Marca= " + marcas[i] + "/n" +
+//                    "Nome= " + nomes[i] + "/n" +
+//                    "Colorway= " + colorways[i] + "/n" +
+//                    "Tamanho= " + tamanhos[i],
+//                    Toast.LENGTH_SHORT).show();
