@@ -1,18 +1,23 @@
 package com.example.mysneakers;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView listViewSneakers;
+    private ArrayAdapter<Sneakers> listAdapter;
+    private ArrayList<Sneakers> listSneaker;
+
+    private int  posicaoSelecionada = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +28,20 @@ public class MainActivity extends AppCompatActivity {
 
         listViewSneakers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Sneakers sneakersList = (Sneakers) listViewSneakers.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(), sneakersList + "\n" + getString(R.string.foi_clicado), Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                posicaoSelecionada = position;
+                alterarSneaker();
+
+            }
+        });
+
+        listViewSneakers.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                posicaoSelecionada = position;
+                alterarSneaker();
+                return true;
+
             }
         });
 
@@ -35,20 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void popularLista() {
 
-        String[] nomes = getResources().getStringArray(R.array.marca);
-        String[] marcas = getResources().getStringArray(R.array.nome);
-        String[] tamanhos = getResources().getStringArray(R.array.tamanho);
-        String [] colorways = getResources().getStringArray(R.array.colorway);
+        listSneaker = new ArrayList<>();
 
-        ArrayList<Sneakers> sneakers = new ArrayList<>();
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listSneaker);
 
-        for (int i = 0; i < nomes.length; i++) {
-            sneakers.add(new Sneakers(nomes[i], marcas[i], tamanhos[i], colorways[i]));
-        }
-
-        ArrayAdapter<Sneakers> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, sneakers);
-
-        listViewSneakers.setAdapter(adapter);
+        listViewSneakers.setAdapter(listAdapter);
 
     }
 
@@ -60,12 +67,54 @@ public class MainActivity extends AppCompatActivity {
         CadastroActivity.novoSneaker(this);
     }
 
+    private void alterarSneaker(){
+
+        Sneakers sneakers = listSneaker.get(posicaoSelecionada);
+
+        CadastroActivity.alterarSneaker(this, sneakers);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+
+            Bundle bundle = data.getExtras();
+
+            String marcaSnk = bundle.getString(CadastroActivity.MARCA);
+            String nomeSnk = bundle.getString(CadastroActivity.NOME);
+            String colorwaySnk = bundle.getString(CadastroActivity.COLORWAY);
+            String tipoTamanhoSnk = bundle.getString(CadastroActivity.TIPOTAMANHO);
+            String tamanhoSnk = bundle.getString(CadastroActivity.TAMANHO);
+            String precoOgSnk = bundle.getString(CadastroActivity.PRECOOG);
+            String precoRevSnk = bundle.getString(CadastroActivity.PRECOREV);
+            int estadoSnk = bundle.getInt(CadastroActivity.ESTADOSNK);
+            boolean possuiSnk = bundle.getBoolean(CadastroActivity.POSSUISNK);
+
+
+            if (requestCode == CadastroActivity.ALTERAR) {
+
+                Sneakers sneakers = listSneaker.get(posicaoSelecionada);
+
+                sneakers.setMarca(marcaSnk);
+                sneakers.setNome(nomeSnk);
+                sneakers.setColorway(colorwaySnk);
+                sneakers.setTipotamanho(tipoTamanhoSnk);
+                sneakers.setTamanho(tamanhoSnk);
+                sneakers.setPrecoOg(precoOgSnk);
+                sneakers.setPrecoRev(precoRevSnk);
+                sneakers.setEstadosnk(estadoSnk);
+                sneakers.setPossuisnk(possuiSnk);
+
+                posicaoSelecionada = -1;
+
+            } else {
+                Sneakers sneakers = new Sneakers(marcaSnk, nomeSnk, colorwaySnk, tipoTamanhoSnk, tamanhoSnk, precoOgSnk, precoRevSnk, estadoSnk, possuiSnk);
+
+                listSneaker.add(sneakers);
+            }
+
+            listAdapter.notifyDataSetChanged();
+        }
+    }
+
 }
-
-
-//            Toast.makeText(this,
-//                    "Marca= " + marcas[i] + "/n" +
-//                    "Nome= " + nomes[i] + "/n" +
-//                    "Colorway= " + colorways[i] + "/n" +
-//                    "Tamanho= " + tamanhos[i],
-//                    Toast.LENGTH_SHORT).show();

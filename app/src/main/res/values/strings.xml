@@ -50,4 +50,7 @@
     <string name="nome_utfpr">Universidade Técnológica Federal do Paraná (UTFPR)</string>
     <string name="erro_abrir_site">Não foi possível abrir a página!</string>
 
+
+    <string name="alt_snk">Alterar Sneaker</string>
+    <string name="novo_snk">Novo Sneaker</string>
 </resources>
