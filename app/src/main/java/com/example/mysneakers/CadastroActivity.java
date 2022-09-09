@@ -261,6 +261,14 @@ public class CadastroActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.campo_limpos, Toast.LENGTH_LONG).show();
     }
 
+    public void cancelar(View view){
+        onBackPressed();
+    }
 
+    @Override
+    public void onBackPressed() {
+        setResult(Activity.RESULT_CANCELED);
+        finish();
+    }
 
 }

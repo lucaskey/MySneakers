@@ -53,4 +53,5 @@
 
     <string name="alt_snk">Alterar Sneaker</string>
     <string name="novo_snk">Novo Sneaker</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
