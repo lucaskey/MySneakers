@@ -3,7 +3,10 @@ package com.example.mysneakers;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -59,19 +62,42 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void abrirSobre(View view){
-        SobreActivity.sobre(this);
-    }
-
-    public void adicionarSneaker(View view){
-        CadastroActivity.novoSneaker(this);
-    }
+//    public void abrirSobre(View view){
+//        SobreActivity.sobre(this);
+//    }
+//
+//    public void adicionarSneaker(View view){
+//        CadastroActivity.novoSneaker(this);
+//    }
 
     private void alterarSneaker(){
 
         Sneakers sneakers = listSneaker.get(posicaoSelecionada);
 
         CadastroActivity.alterarSneaker(this, sneakers);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.principal_opcoes, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuItemAdicionar:
+                CadastroActivity.novoSneaker(this);
+                return true;
+
+            case R.id.menuItemSobre:
+                SobreActivity.sobre(this);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 
     @Override
