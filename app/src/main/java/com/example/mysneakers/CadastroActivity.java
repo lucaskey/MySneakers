@@ -3,7 +3,10 @@ package com.example.mysneakers;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -159,7 +162,7 @@ public class CadastroActivity extends AppCompatActivity {
         spinnerTamanhos.setAdapter(adapter);
     }
 
-    public void salvarCampos(View view){
+    public void salvarCampos(){
         String nomeSnk = editTextNomeSnk.getText().toString();
         String marca = editTextMarca.getText().toString();
         String colorway = editTextColorway.getText().toString();
@@ -244,7 +247,7 @@ public class CadastroActivity extends AppCompatActivity {
         finish();
     }
 
-    public void limparCampos(View view) {
+    public void limparCampos() {
         editTextNomeSnk.setText(null);
         editTextMarca.setText(null);
         editTextTamanho.setText(null);
@@ -269,6 +272,28 @@ public class CadastroActivity extends AppCompatActivity {
     public void onBackPressed() {
         setResult(Activity.RESULT_CANCELED);
         finish();
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cadastro_opcoes, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuItemSalvar:
+                salvarCampos();
+                return true;
+
+            case R.id.menuItemLimpar:
+                limparCampos();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 
 }

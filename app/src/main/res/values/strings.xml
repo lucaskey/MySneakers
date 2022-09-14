@@ -55,4 +55,5 @@
     <string name="novo_snk">Novo Sneaker</string>
     <string name="cancelar">Cancelar</string>
     <string name="adicionar">Adicionar</string>
+    <string name="item_excluido">Item Excluído!</string>
 </resources>
