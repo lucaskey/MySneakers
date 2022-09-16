@@ -16,6 +16,10 @@ public class Sneakers {
     private boolean possuisnk;
     private String tipotamanho;
 
+    public Sneakers(String nome){
+        setNome(nome);
+    }
+
     public Sneakers(String marca, String nome, String tipotamanho, String tamanho,String colorway, String precoOg, String precoRev, int estadosnk, boolean possuisnk) {
 
         setMarca(marca);

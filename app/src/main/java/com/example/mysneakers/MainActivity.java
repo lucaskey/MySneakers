@@ -31,25 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         listViewSneakers = findViewById(R.id.listViewSneakers);
 
-//        listViewSneakers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                posicaoSelecionada = position;
-//                alterarSneaker();
-//
-//            }
-//        });
-//
-//        listViewSneakers.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                posicaoSelecionada = position;
-//                alterarSneaker();
-//                return true;
-//
-//            }
-//        });
-
         popularLista();
 
         registerForContextMenu(listViewSneakers);
@@ -64,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
 
         listViewSneakers.setAdapter(listAdapter);
 
+    }
+
+    private void alterarSneaker(){
+
+        Sneakers sneakers = listSneaker.get(posicaoSelecionada);
+
+        CadastroActivity.alterarSneaker(this, sneakers);
     }
 
     @Override
@@ -101,21 +89,6 @@ public class MainActivity extends AppCompatActivity {
         listAdapter.notifyDataSetChanged();
     }
 
-    //    public void abrirSobre(View view){
-//        SobreActivity.sobre(this);
-//    }
-//
-//    public void adicionarSneaker(View view){
-//        CadastroActivity.novoSneaker(this);
-//    }
-
-    private void alterarSneaker(){
-
-        Sneakers sneakers = listSneaker.get(posicaoSelecionada);
-
-        CadastroActivity.alterarSneaker(this, sneakers);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.principal_opcoes, menu);
@@ -145,35 +118,35 @@ public class MainActivity extends AppCompatActivity {
 
             Bundle bundle = data.getExtras();
 
-            String marcaSnk = bundle.getString(CadastroActivity.MARCA);
-            String nomeSnk = bundle.getString(CadastroActivity.NOME);
-            String colorwaySnk = bundle.getString(CadastroActivity.COLORWAY);
-            String tipoTamanhoSnk = bundle.getString(CadastroActivity.TIPOTAMANHO);
-            String tamanhoSnk = bundle.getString(CadastroActivity.TAMANHO);
-            String precoOgSnk = bundle.getString(CadastroActivity.PRECOOG);
-            String precoRevSnk = bundle.getString(CadastroActivity.PRECOREV);
-            int estadoSnk = bundle.getInt(CadastroActivity.ESTADOSNK);
-            boolean possuiSnk = bundle.getBoolean(CadastroActivity.POSSUISNK);
+            String marca = bundle.getString(CadastroActivity.MARCA);
+            String nome = bundle.getString(CadastroActivity.NOME);
+            String colorway = bundle.getString(CadastroActivity.COLORWAY);
+            String tipoTamanho = bundle.getString(CadastroActivity.TIPOTAMANHO);
+            String tamanho = bundle.getString(CadastroActivity.TAMANHO);
+            String precoOg = bundle.getString(CadastroActivity.PRECOOG);
+            String precoRev = bundle.getString(CadastroActivity.PRECOREV);
+            int estado = bundle.getInt(CadastroActivity.ESTADOSNK);
+            boolean possui = bundle.getBoolean(CadastroActivity.POSSUISNK);
 
 
             if (requestCode == CadastroActivity.ALTERAR) {
 
                 Sneakers sneakers = listSneaker.get(posicaoSelecionada);
 
-                sneakers.setMarca(marcaSnk);
-                sneakers.setNome(nomeSnk);
-                sneakers.setColorway(colorwaySnk);
-                sneakers.setTipotamanho(tipoTamanhoSnk);
-                sneakers.setTamanho(tamanhoSnk);
-                sneakers.setPrecoOg(precoOgSnk);
-                sneakers.setPrecoRev(precoRevSnk);
-                sneakers.setEstadosnk(estadoSnk);
-                sneakers.setPossuisnk(possuiSnk);
+                sneakers.setMarca(marca);
+                sneakers.setNome(nome);
+                sneakers.setColorway(colorway);
+                sneakers.setTipotamanho(tipoTamanho);
+                sneakers.setTamanho(tamanho);
+                sneakers.setPrecoOg(precoOg);
+                sneakers.setPrecoRev(precoRev);
+                sneakers.setEstadosnk(estado);
+                sneakers.setPossuisnk(possui);
 
                 posicaoSelecionada = -1;
 
             } else {
-                Sneakers sneakers = new Sneakers(marcaSnk, nomeSnk, colorwaySnk, tipoTamanhoSnk, tamanhoSnk, precoOgSnk, precoRevSnk, estadoSnk, possuiSnk);
+                Sneakers sneakers = new Sneakers(marca, nome, colorway, tipoTamanho, tamanho, precoOg, precoRev, estado, possui);
 
                 listSneaker.add(sneakers);
             }

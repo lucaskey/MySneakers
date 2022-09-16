@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,13 +19,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class CadastroActivity extends AppCompatActivity {
-
-
-
-    private EditText editTextNomeSnk, editTextMarca, editTextTamanho, editTextColorway, editTextPrecoOg, editTextPrecoRev;
-    private CheckBox cbPossui;
-    private RadioGroup radioGroupEstado;
-    private Spinner spinnerTamanhos;
 
     public static final String MODO    = "MODO";
     public static final String NOME    = "NOME";
@@ -40,6 +33,11 @@ public class CadastroActivity extends AppCompatActivity {
 
     public static final int    NOVO    = 1;
     public static final int    ALTERAR = 2;
+
+    private EditText editTextNomeSnk, editTextMarca, editTextTamanho, editTextColorway, editTextPrecoOg, editTextPrecoRev;
+    private CheckBox cbPossui;
+    private RadioGroup radioGroupEstado;
+    private Spinner spinnerTamanhos;
 
     private int modo;
 
@@ -75,6 +73,11 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         editTextNomeSnk = findViewById(R.id.editTextSnkNome);
         editTextMarca = findViewById(R.id.editTextSnkMarca);
         editTextColorway = findViewById(R.id.editTextSnkColorway);
@@ -94,22 +97,29 @@ public class CadastroActivity extends AppCompatActivity {
 
             if (modo == NOVO){
                 setTitle(getString(R.string.novo_snk));
-            }
-            else{
+            }else{
                 String marcaSnk = bundle.getString(MARCA);
                 editTextMarca.setText(marcaSnk);
+
                 String nomeSnk = bundle.getString(NOME);
                 editTextNomeSnk.setText(nomeSnk);
+
                 String colorwaySnk = bundle.getString(COLORWAY);
                 editTextColorway.setText(colorwaySnk);
+
                 String tipoTamanhoSnk = bundle.getString(TIPOTAMANHO);
+
                 String tamanhoSnk = bundle.getString(TAMANHO);
                 editTextTamanho.setText(tamanhoSnk);
+
                 String precoOgSnk = bundle.getString(PRECOOG);
                 editTextPrecoOg.setText(precoOgSnk);
+
                 String precoRevSnk = bundle.getString(PRECOREV);
                 editTextPrecoRev.setText(precoRevSnk);
+
                 int estadoSnk = bundle.getInt(ESTADOSNK);
+
                 RadioButton button;
                 switch(estadoSnk){
                     case Sneakers.NOVO:
@@ -127,6 +137,7 @@ public class CadastroActivity extends AppCompatActivity {
                         button.setChecked(true);
                         break;
                 }
+
                 Boolean possuiSnk = bundle.getBoolean(POSSUISNK);
                                 for (int pos = 0; 0 < spinnerTamanhos.getAdapter().getCount(); pos++){
                     String valor = (String) spinnerTamanhos.getItemAtPosition(pos);
@@ -226,6 +237,10 @@ public class CadastroActivity extends AppCompatActivity {
             cbMensagem = getString(R.string.cbnpossui);
         }
 
+//        if (modo == ALTERAR && nomeSnk.equals(nomeOriginal)){
+//            cancelar();
+//            return;
+//        }
 
         Toast.makeText(this,
                         marca + "\n" + nomeSnk + "\n" + colorway + "\n" + spMensagem + "\n" + tamanho + "\n" + precoOg + "\n" + precoRev + "\n" + rbMensagem + "\n" + cbMensagem,
@@ -264,14 +279,14 @@ public class CadastroActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.campo_limpos, Toast.LENGTH_LONG).show();
     }
 
-    public void cancelar(View view){
-        onBackPressed();
+    public void cancelar(){
+        setResult(Activity.RESULT_CANCELED);
+        finish();
     }
 
     @Override
     public void onBackPressed() {
-        setResult(Activity.RESULT_CANCELED);
-        finish();
+        cancelar();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -285,6 +300,8 @@ public class CadastroActivity extends AppCompatActivity {
             case R.id.menuItemSalvar:
                 salvarCampos();
                 return true;
+
+            case android.R.id.home:
 
             case R.id.menuItemLimpar:
                 limparCampos();
