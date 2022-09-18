@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
         info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
+        posicaoSelecionada = info.position;
+
         switch (item.getItemId()){
             case R.id.menuItemEditar:
                 alterarSneaker();
@@ -146,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 posicaoSelecionada = -1;
 
             } else {
-                Sneakers sneakers = new Sneakers(marca, nome, colorway, tipoTamanho, tamanho, precoOg, precoRev, estado, possui);
+                Sneakers sneakers = new Sneakers(marca, nome, tipoTamanho, tamanho, colorway, precoOg, precoRev, estado, possui);
 
                 listSneaker.add(sneakers);
             }

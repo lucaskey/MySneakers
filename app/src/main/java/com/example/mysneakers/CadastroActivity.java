@@ -58,7 +58,7 @@ public class CadastroActivity extends AppCompatActivity {
         intent.putExtra(MARCA, sneakers.getMarca());
         intent.putExtra(NOME, sneakers.getNome());
         intent.putExtra(COLORWAY, sneakers.getColorway());
-        intent.putExtra(TIPOTAMANHO, sneakers.getPrecoRev());
+        intent.putExtra(TIPOTAMANHO, sneakers.getTipotamanho());
         intent.putExtra(TAMANHO, sneakers.getTamanho());
         intent.putExtra(PRECOOG, sneakers.getPrecoOg());
         intent.putExtra(PRECOREV, sneakers.getPrecoRev());
@@ -90,6 +90,8 @@ public class CadastroActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+
+        popularSpinner();
 
         if (bundle != null){
 
@@ -139,7 +141,7 @@ public class CadastroActivity extends AppCompatActivity {
                 }
 
                 Boolean possuiSnk = bundle.getBoolean(POSSUISNK);
-                                for (int pos = 0; 0 < spinnerTamanhos.getAdapter().getCount(); pos++){
+                                for (int pos = 0; pos < spinnerTamanhos.getAdapter().getCount(); pos++){
                     String valor = (String) spinnerTamanhos.getItemAtPosition(pos);
 
                     if (valor.equals(tipoTamanhoSnk)){
@@ -155,7 +157,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         editTextMarca.requestFocus();
 
-        popularSpinner();
+
 
     }
 
@@ -237,10 +239,6 @@ public class CadastroActivity extends AppCompatActivity {
             cbMensagem = getString(R.string.cbnpossui);
         }
 
-//        if (modo == ALTERAR && nomeSnk.equals(nomeOriginal)){
-//            cancelar();
-//            return;
-//        }
 
         Toast.makeText(this,
                         marca + "\n" + nomeSnk + "\n" + colorway + "\n" + spMensagem + "\n" + tamanho + "\n" + precoOg + "\n" + precoRev + "\n" + rbMensagem + "\n" + cbMensagem,
@@ -276,7 +274,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         editTextMarca.requestFocus();
 
-        Toast.makeText(this, R.string.campo_limpos, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.campo_limpos, Toast.LENGTH_SHORT).show();
     }
 
     public void cancelar(){
@@ -301,7 +299,6 @@ public class CadastroActivity extends AppCompatActivity {
                 salvarCampos();
                 return true;
 
-            case android.R.id.home:
 
             case R.id.menuItemLimpar:
                 limparCampos();
