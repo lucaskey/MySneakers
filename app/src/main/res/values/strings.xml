@@ -1,59 +1,60 @@
 <resources>
-    <string name="app_name">MySneakers</string>
-    <string name="nome_snk">Nome do Sneaker</string>
-    <string name="limpar">Limpar</string>
-    <string name="tamanho">Tamanho (número)</string>
-    <string name="marca">Marca</string>
+    <string name="app_name" translatable="false">MySneakers</string>
+    <string name="nome_snk">Name of Sneaker</string>
+    <string name="limpar">Clear</string>
+    <string name="tamanho">Size (number)</string>
+    <string name="marca">Brand</string>
     <string name="colorway">Colorway</string>
-    <string name="preco_or">Preço Original</string>
-    <string name="preco_rev">Preço Revenda</string>
-    <string name="salvar">Salvar</string>
-    <string name="erro_nomesnk">Nome do Sneaker não pode ser vazio!</string>
-    <string name="erro_marca">Marca não pode ser vazio!</string>
-    <string name="campo_limpos">Campos limpos!</string>
-    <string name="cb_possui">Já possui?</string>
-    <string name="cbpossui">Possui o SNK :)</string>
-    <string name="cbnpossui">Não possui o SNK :(</string>
-    <string name="snknovo">Novo</string>
-    <string name="snkpusado">Pouco Usado</string>
-    <string name="snkmusado">Muito Usado</string>
-    <string name="snkestnselecionado">Estado do SNK não selecionado</string>
-    <string name="tamcm">cm</string>
-    <string name="tamus">US</string>
-    <string name="tambr">BR</string>
-    <string name="tamuk">UK</string>
-    <string name="tameur">EUR</string>
-    <string name="tamtipo">"Tipo de tamanho: "</string>
-    <string name="tamtiponenhum">Nenhum tipo de tamanho foi selecionado</string>
-    <string name="tipotam">Tipo de tamanho</string>
+    <string name="preco_or">Original Price</string>
+    <string name="preco_rev">Resell Price</string>
+    <string name="salvar">Save</string>
+    <string name="erro_nomesnk">Name of Sneaker cannot be empty!</string>
+    <string name="erro_marca">Brand cannot be empty!</string>
+    <string name="campo_limpos">Fields clear</string>
+    <string name="cb_possui">Already have?</string>
+    <string name="cbpossui">Owns the SNK :)</string>
+    <string name="cbnpossui">Don\'t own the SNK :(</string>
+    <string name="snknovo">New</string>
+    <string name="snkpusado">Little used</string>
+    <string name="snkmusado">Very used</string>
+    <string name="snkestnselecionado">SNK condition not selected</string>
+    <string name="tamcm" translatable="false">cm</string>
+    <string name="tamus" translatable="false">US</string>
+    <string name="tambr" translatable="false">BR</string>
+    <string name="tamuk" translatable="false">UK</string>
+    <string name="tameur" translatable="false">EUR</string>
+    <string name="tamtipo">"Type of size: "</string>
+    <string name="tamtiponenhum">No size type selected</string>
+    <string name="tipotam">Type of size</string>
 
-    <string name="nike">Nike</string>
-    <string name="adidas">Adidas</string>
-    <string name="asics">Asics</string>
-    <string name="new_balance">New Balance</string>
-    <string name="yeezy">Yeezy</string>
-    <string name="puma">Puma</string>
-    <string name="vans">Vans</string>
-    <string name="reebok">Reebok</string>
-    <string name="converse">Converse</string>
-    <string name="vert">Vert</string>
+    <string name="nike" translatable="false">Nike</string>
+    <string name="adidas" translatable="false">Adidas</string>
+    <string name="asics" translatable="false">Asics</string>
+    <string name="new_balance" translatable="false">New Balance</string>
+    <string name="yeezy" translatable="false">Yeezy</string>
+    <string name="puma" translatable="false">Puma</string>
+    <string name="vans" translatable="false">Vans</string>
+    <string name="reebok" translatable="false">Reebok</string>
+    <string name="converse" translatable="false">Converse</string>
+    <string name="vert" translatable="false">Vert</string>
 
-    <string name="foi_clicado">Foi clicado!</string>
+    <string name="foi_clicado">Was clicked!</string>
 
-    <string name="novo_cadastro">Novo</string>
-    <string name="sobre">Sobre</string>
-    <string name="nome_aluno">Lucas Key Shibata Mitsudo</string>
-    <string name="curso_aluno">IF69S - Programação para Dispositivos Móveis - C91 (2022_02)</string>
-    <string name="email_aluno">lucasmitsudo@alunos.utfpr.edu.br</string>
-    <string name="sobre_app">Sobre o Aplicativo:</string>
-    <string name="descricao_app">Aplicativo foi criado para que o usuário tenha um controle da própria coleção de Sneakers.</string>
-    <string name="nome_utfpr">Universidade Técnológica Federal do Paraná (UTFPR)</string>
-    <string name="erro_abrir_site">Não foi possível abrir a página!</string>
+    <string name="novo_cadastro">New</string>
+    <string name="sobre">About it</string>
+    <string name="nome_aluno" translatable="false">Lucas Key Shibata Mitsudo</string>
+    <string name="curso_aluno">IF69S - Programming for Mobile Devices - C91 (2022_02)</string>
+    <string name="email_aluno" translatable="false">lucasmitsudo@alunos.utfpr.edu.br</string>
+    <string name="sobre_app">About the App:</string>
+    <string name="descricao_app">Application was created so that the user has control of their own collection of Sneakers.</string>
+    <string name="nome_utfpr">Federal University of Paraná (UTFPR)</string>
+    <string name="erro_abrir_site">The page could not be opened!</string>
 
 
-    <string name="alt_snk">Alterar Sneaker</string>
-    <string name="novo_snk">Novo Sneaker</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="adicionar">Adicionar</string>
-    <string name="item_excluido">Item Excluído!</string>
+    <string name="alt_snk">Change Sneaker</string>
+    <string name="novo_snk">New Sneaker</string>
+    <string name="cancelar">Cancel</string>
+    <string name="adicionar">Add</string>
+    <string name="item_excluido">"Item Excluded! "</string>
+    <string name="url_utfpr" translatable="false">http://www.utfpr.edu.br</string>
 </resources>

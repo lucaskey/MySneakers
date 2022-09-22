@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nome_snk">Nome do Sneaker</string>
+    <string name="limpar">Limpar</string>
+    <string name="tamanho">Tamanho (número)</string>
+    <string name="marca">Marca</string>
+    <string name="colorway">Colorway</string>
+    <string name="preco_or">Preço Original</string>
+    <string name="preco_rev">Preço Revenda</string>
+    <string name="salvar">Salvar</string>
+    <string name="erro_nomesnk">Nome do Sneaker não pode ser vazio!</string>
+    <string name="erro_marca">Marca não pode ser vazio!</string>
+    <string name="campo_limpos">Campos limpos!</string>
+    <string name="cb_possui">Já possui?</string>
+    <string name="cbpossui">Possui o SNK :)</string>
+    <string name="cbnpossui">Não possui o SNK :(</string>
+    <string name="snknovo">Novo</string>
+    <string name="snkpusado">Pouco Usado</string>
+    <string name="snkmusado">Muito Usado</string>
+    <string name="snkestnselecionado">Estado do SNK não selecionado</string>
+    <string name="tamtipo">"Tipo de tamanho: "</string>
+    <string name="tamtiponenhum">Nenhum tipo de tamanho foi selecionado</string>
+    <string name="tipotam">Tipo de tamanho</string>
+
+    <string name="foi_clicado">Foi clicado!</string>
+
+    <string name="novo_cadastro">Novo</string>
+    <string name="sobre">Sobre</string>
+    <string name="curso_aluno">IF69S - Programação para Dispositivos Móveis - C91 (2022_02)</string>
+    <string name="sobre_app">Sobre o Aplicativo:</string>
+    <string name="descricao_app">Aplicativo foi criado para que o usuário tenha um controle da própria coleção de Sneakers.</string>
+    <string name="erro_abrir_site">Não foi possível abrir a página!</string>
+
+
+    <string name="alt_snk">Alterar Sneaker</string>
+    <string name="novo_snk">Novo Sneaker</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="item_excluido">Item Excluído!</string>
+    <string name="nome_utfpr">Universidade Técnológica Federal do Paraná (UTFPR)</string>
+</resources>

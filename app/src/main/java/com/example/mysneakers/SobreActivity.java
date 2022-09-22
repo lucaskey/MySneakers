@@ -29,7 +29,7 @@ public class SobreActivity extends AppCompatActivity {
     }
 
     public void abreSiteUTFPR(View view) {
-        abreSite("http://www.utfpr.edu.br");
+        abreSite(getString(R.string.url_utfpr));
     }
 
     private void abreSite(String site) {
