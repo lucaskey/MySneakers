@@ -57,4 +57,6 @@
     <string name="adicionar">Add</string>
     <string name="item_excluido">"Item Excluded! "</string>
     <string name="url_utfpr" translatable="false">http://www.utfpr.edu.br</string>
+
+    <string name="mode">Light Mode</string>
 </resources>

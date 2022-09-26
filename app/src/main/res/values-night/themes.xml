@@ -1,10 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MySneakers" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.MySneakers" parent="Theme.AppCompat.DayNight">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorPrimary">@color/darkgray</item>
+        <item name="colorPrimaryDark">@color/orange_700</item>
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorPrimary">@color/off_white</item>
     </style>
 </resources>
