@@ -1,6 +1,13 @@
-package com.example.mysneakers;
+package com.example.mysneakers.modelo;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity
 public class Sneakers {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
 
     public static final int NOVO = 1;
     public static final int POUCO = 2;
@@ -16,9 +23,7 @@ public class Sneakers {
     private boolean possuisnk;
     private String tipotamanho;
 
-    public Sneakers(String nome){
-        setNome(nome);
-    }
+
 
     public Sneakers(String marca, String nome, String tipotamanho, String tamanho,String colorway, String precoOg, String precoRev, int estadosnk, boolean possuisnk) {
 
@@ -31,6 +36,14 @@ public class Sneakers {
         setTipotamanho(tipotamanho);
         setEstadosnk(estadosnk);
         setPossuisnk(possuisnk);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMarca() {

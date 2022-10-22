@@ -16,6 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mysneakers.modelo.Sneakers;
+
 import java.util.ArrayList;
 
 public class CadastroActivity extends AppCompatActivity {

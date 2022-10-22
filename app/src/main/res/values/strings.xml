@@ -59,4 +59,10 @@
     <string name="url_utfpr" translatable="false">http://www.utfpr.edu.br</string>
 
     <string name="mode">Light Mode</string>
+
+    <string name="aviso">Warning</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="sim">Yes</string>
+    <string name="nao">No</string>
+    <string name="confirmacao">Confirmation</string>
 </resources>

@@ -39,4 +39,9 @@
     <string name="item_excluido">Item Excluído!</string>
     <string name="nome_utfpr">Universidade Técnológica Federal do Paraná (UTFPR)</string>
     <string name="mode">Modo</string>
+
+    <string name="aviso">Aviso</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="confirmacao">Confirmação</string>
 </resources>

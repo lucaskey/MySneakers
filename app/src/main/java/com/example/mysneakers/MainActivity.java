@@ -18,6 +18,9 @@ import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.mysneakers.modelo.Sneakers;
+import com.example.mysneakers.persistencia.SneakersDatabase;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void popularLista() {
 
-        listSneaker = new ArrayList<>();
+        SneakersDatabase database = SneakersDatabase.getDatabase(this);
 
         listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listSneaker);
 
