@@ -17,10 +17,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mysneakers.modelo.Sneakers;
+import com.example.mysneakers.persistencia.SneakersDatabase;
 
 import java.util.ArrayList;
 
 public class CadastroActivity extends AppCompatActivity {
+
+    public static final String ID      = "ID";
 
     public static final String MODO    = "MODO";
     public static final String NOME    = "NOME";
@@ -42,6 +45,7 @@ public class CadastroActivity extends AppCompatActivity {
     private Spinner spinnerTamanhos;
 
     private int modo;
+    private Sneakers sneakers;
 
     public static void novoSneaker(AppCompatActivity activity){
 
@@ -102,6 +106,12 @@ public class CadastroActivity extends AppCompatActivity {
             if (modo == NOVO){
                 setTitle(getString(R.string.novo_snk));
             }else{
+                int id = bundle.getInt(ID);
+
+                SneakersDatabase database = SneakersDatabase.getDatabase(this);
+
+                sneakers = database.sneakersDAO().queryForId(id);
+
                 String marcaSnk = bundle.getString(MARCA);
                 editTextMarca.setText(marcaSnk);
 
@@ -256,6 +266,17 @@ public class CadastroActivity extends AppCompatActivity {
         intent.putExtra(PRECOREV, precoRev);
         intent.putExtra(ESTADOSNK, estadoSnk);
         intent.putExtra(POSSUISNK, possuiSnk);
+
+        SneakersDatabase database = SneakersDatabase.getDatabase(this);
+
+        if (modo == NOVO) {
+
+            database.sneakersDAO().insert(sneakers);
+
+        } else {
+
+            database.sneakersDAO().update(sneakers);
+        }
 
         setResult(Activity.RESULT_OK, intent);
 

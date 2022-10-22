@@ -65,4 +65,5 @@
     <string name="sim">Yes</string>
     <string name="nao">No</string>
     <string name="confirmacao">Confirmation</string>
+    <string name="confirmar_pargar">Do you really want to delete?</string>
 </resources>

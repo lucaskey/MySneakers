@@ -1,6 +1,7 @@
 package com.example.mysneakers;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,10 +17,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.mysneakers.modelo.Sneakers;
 import com.example.mysneakers.persistencia.SneakersDatabase;
+import com.example.mysneakers.utils.UtilsGUI;
 
 import java.util.ArrayList;
 
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
-        posicaoSelecionada = info.position;
+        Sneakers sneakers = (Sneakers) listViewSneakers.getItemAtPosition(info.position);
 
         switch (item.getItemId()){
             case R.id.menuItemEditar:
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.menuItemExcluir:
-                excluirSneaker(info.position);
+                excluirSneaker(sneakers);
                 return true;
 
             default:
@@ -122,12 +123,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void excluirSneaker(int position) {
-        listSneaker.remove(position);
+    private void excluirSneaker(final Sneakers sneakers) {
+        String mensagem = getString(R.string.confirmar_pargar) + "\n" + sneakers.getNome();
 
-        Toast.makeText(this, R.string.item_excluido, Toast.LENGTH_LONG).show();
+        DialogInterface.OnClickListener listener =
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-        listAdapter.notifyDataSetChanged();
+                        switch(which){
+                            case DialogInterface.BUTTON_POSITIVE:
+
+                                SneakersDatabase database =
+                                        SneakersDatabase.getDatabase(MainActivity.this);
+
+                                database.sneakersDAO().delete(sneakers);
+
+                                listSneaker.remove(sneakers);
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+
+                                break;
+                        }
+                    }
+                };
+
+        UtilsGUI.confirmaAcao(this, mensagem, listener);
     }
 
     @Override

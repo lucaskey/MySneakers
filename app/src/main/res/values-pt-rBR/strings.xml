@@ -44,4 +44,5 @@
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
     <string name="confirmacao">Confirmação</string>
+    <string name="confirmar_pargar">Deseja realmente apagar?</string>
 </resources>
