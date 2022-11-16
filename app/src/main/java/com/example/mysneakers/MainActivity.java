@@ -22,13 +22,13 @@ import com.example.mysneakers.modelo.Sneakers;
 import com.example.mysneakers.persistencia.SneakersDatabase;
 import com.example.mysneakers.utils.UtilsGUI;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView listViewSneakers;
     private ArrayAdapter<Sneakers> listAdapter;
-    private ArrayList<Sneakers> listSneaker;
+    private List<Sneakers> listSneakers;
 
     private int  posicaoSelecionada = -1;
 
@@ -81,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
 
         SneakersDatabase database = SneakersDatabase.getDatabase(this);
 
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listSneaker);
+        List<Sneakers> listSneakers = database.sneakersDAO().queryAll();
+
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listSneakers);
 
         listViewSneakers.setAdapter(listAdapter);
 
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void alterarSneaker(){
 
-        Sneakers sneakers = listSneaker.get(posicaoSelecionada);
+        Sneakers sneakers = listSneakers.get(posicaoSelecionada);
 
         CadastroActivity.alterarSneaker(this, sneakers);
     }
@@ -139,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 database.sneakersDAO().delete(sneakers);
 
-                                listSneaker.remove(sneakers);
+                                listSneakers.remove(sneakers);
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
@@ -194,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (requestCode == CadastroActivity.ALTERAR) {
 
-                Sneakers sneakers = listSneaker.get(posicaoSelecionada);
+                Sneakers sneakers = listSneakers.get(posicaoSelecionada);
 
                 sneakers.setMarca(marca);
                 sneakers.setNome(nome);
@@ -211,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Sneakers sneakers = new Sneakers(marca, nome, tipoTamanho, tamanho, colorway, precoOg, precoRev, estado, possui);
 
-                listSneaker.add(sneakers);
+                listSneakers.add(sneakers);
             }
 
             listAdapter.notifyDataSetChanged();

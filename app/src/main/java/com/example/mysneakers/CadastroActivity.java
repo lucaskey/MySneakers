@@ -61,6 +61,7 @@ public class CadastroActivity extends AppCompatActivity {
         Intent intent = new Intent(activity, CadastroActivity.class);
 
         intent.putExtra(MODO, ALTERAR);
+        intent.putExtra(ID, sneakers.getId());
         intent.putExtra(MARCA, sneakers.getMarca());
         intent.putExtra(NOME, sneakers.getNome());
         intent.putExtra(COLORWAY, sneakers.getColorway());
@@ -253,8 +254,8 @@ public class CadastroActivity extends AppCompatActivity {
 
 
         Toast.makeText(this,
-                        marca + "\n" + nomeSnk + "\n" + colorway + "\n" + spMensagem + "\n" + tamanho + "\n" + precoOg + "\n" + precoRev + "\n" + rbMensagem + "\n" + cbMensagem,
-                        Toast.LENGTH_LONG).show();
+                marca + "\n" + nomeSnk + "\n" + colorway + "\n" + spMensagem + "\n" + tamanho + "\n" + precoOg + "\n" + precoRev + "\n" + rbMensagem + "\n" + cbMensagem,
+                Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent();
         intent.putExtra(MARCA,  marca);

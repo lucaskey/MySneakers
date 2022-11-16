@@ -66,4 +66,5 @@
     <string name="nao">No</string>
     <string name="confirmacao">Confirmation</string>
     <string name="confirmar_pargar">Do you really want to delete?</string>
+    <string name="nome_vazio">Nome vazio</string>
 </resources>

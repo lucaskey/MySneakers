@@ -8,6 +8,8 @@ import android.arch.persistence.room.Update;
 
 import com.example.mysneakers.modelo.Sneakers;
 
+import java.util.List;
+
 @Dao
 public interface SneakersDAO {
 
@@ -23,6 +25,6 @@ public interface SneakersDAO {
     @Query("SELECT * FROM sneakers WHERE id = :id")
     Sneakers queryForId(long id);
 
-//    @Query("SELECT * FROM sbeakers ORDER BY marca ASC")
-//    List<Sneakers> queryAll();
+    @Query("SELECT * FROM sneakers ORDER BY marca ASC")
+    List<Sneakers> queryAll();
 }
