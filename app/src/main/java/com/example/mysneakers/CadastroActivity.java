@@ -47,7 +47,7 @@ public class CadastroActivity extends AppCompatActivity {
     private int modo;
     private Sneakers sneakers;
 
-    public static void novoSneaker(AppCompatActivity activity){
+    public static void novoSneaker(AppCompatActivity activity, int requestNovoSneakers){
 
         Intent intent = new Intent(activity, CadastroActivity.class);
 

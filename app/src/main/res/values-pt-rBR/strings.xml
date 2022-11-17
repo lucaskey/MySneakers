@@ -45,4 +45,16 @@
     <string name="nao">Não</string>
     <string name="confirmacao">Confirmação</string>
     <string name="confirmar_pargar">Deseja realmente apagar?</string>
+
+    <string name="chinelo">Chinelo</string>
+    <string name="bota">Bota</string>
+
+    <string name="nenhum_tipo">Nenhum tipo criado!</string>
+    <string name="alterar_tipo">Alterar Tipo</string>
+    <string name="novo_tipo">Novo Tipo</string>
+    <string name="descricao_vazia">A descrição está vazia!</string>
+    <string name="tipo_usado">O tipo esta sendo usado e não pode ser apagado!</string>
+    <string name="descricao_usada">Esta descrição já foi usada em outro tipo!</string>
+    <string name="tipos">Tipos</string>
+    <string name="deseja_realmente_apagar">Deseja realmente apagar?</string>
 </resources>

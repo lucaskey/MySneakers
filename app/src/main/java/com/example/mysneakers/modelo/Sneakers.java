@@ -1,9 +1,15 @@
 package com.example.mysneakers.modelo;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "sneakers",
+        foreignKeys = @ForeignKey(entity = Tipo.class,
+                parentColumns = "id",
+                childColumns  = "tipoId"))
+
 public class Sneakers {
 
     @PrimaryKey(autoGenerate = true)
@@ -23,6 +29,9 @@ public class Sneakers {
     private boolean possuisnk;
     private String tipotamanho;
 
+    @ColumnInfo(index = true)
+    private int tipoId;
+
 
 
     public Sneakers(String marca, String nome, String tipotamanho, String tamanho,String colorway, String precoOg, String precoRev, int estadosnk, boolean possuisnk) {
@@ -36,6 +45,14 @@ public class Sneakers {
         setTipotamanho(tipotamanho);
         setEstadosnk(estadosnk);
         setPossuisnk(possuisnk);
+    }
+
+    public int getTipoId() {
+        return tipoId;
+    }
+
+    public void setTipoId(int tipoId) {
+        this.tipoId = tipoId;
     }
 
     public int getId() {

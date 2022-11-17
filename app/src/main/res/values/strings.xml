@@ -66,5 +66,17 @@
     <string name="nao">No</string>
     <string name="confirmacao">Confirmation</string>
     <string name="confirmar_pargar">Do you really want to delete?</string>
-    <string name="nome_vazio">Nome vazio</string>
+
+    <string name="sneaker" translatable="false">Sneaker</string>
+    <string name="chinelo">Slipper</string>
+    <string name="bota">Boot</string>
+
+    <string name="nenhum_tipo">Type not created!</string>
+    <string name="alterar_tipo">Change type</string>
+    <string name="novo_tipo">New type</string>
+    <string name="descricao_vazia">Empty description!</string>
+    <string name="tipo_usado">Type is beeing used and cannot be deleted!</string>
+    <string name="descricao_usada">This description has been used in other type!</string>
+    <string name="tipos">Types</string>
+    <string name="deseja_realmente_apagar">Do really want to delete?</string>
 </resources>

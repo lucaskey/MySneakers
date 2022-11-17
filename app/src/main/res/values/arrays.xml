@@ -52,4 +52,10 @@
         <item>Off white</item>
     </string-array>
 
+    <string-array name="tipos_iniciais">
+        <item>@string/sneaker</item>
+        <item>@string/chinelo</item>
+        <item>@string/bota</item>
+    </string-array>
+
 </resources>

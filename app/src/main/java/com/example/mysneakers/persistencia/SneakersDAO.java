@@ -27,4 +27,7 @@ public interface SneakersDAO {
 
     @Query("SELECT * FROM sneakers ORDER BY marca ASC")
     List<Sneakers> queryAll();
+
+    @Query("SELECT * FROM sneakers WHERE tipoId = :id ORDER BY nome ASC")
+    List<Sneakers> queryForTipoId(long id);
 }

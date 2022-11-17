@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     private ListView listViewSneakers;
     private ArrayAdapter<Sneakers> listAdapter;
     private List<Sneakers> listSneakers;
+
+    private static final int REQUEST_NOVO_SNEAKERS    = 1;
+    private static final int REQUEST_ALTERAR_SNEAKERS = 2;
 
     private int  posicaoSelecionada = -1;
 
@@ -154,6 +158,34 @@ public class MainActivity extends AppCompatActivity {
         UtilsGUI.confirmaAcao(this, mensagem, listener);
     }
 
+
+    private void verificaTipos(){
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                SneakersDatabase database = SneakersDatabase.getDatabase(MainActivity.this);
+
+                int total = database.tipoDao().total();
+
+                if (total == 0){
+
+                    MainActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            UtilsGUI.avisoErro(MainActivity.this, R.string.nenhum_tipo);
+                        }
+                    });
+
+                    return;
+                }
+
+                CadastroActivity.novoSneaker(MainActivity.this, REQUEST_NOVO_SNEAKERS);
+            }
+        });
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.principal_opcoes, menu);
@@ -164,11 +196,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menuItemAdicionar:
-                CadastroActivity.novoSneaker(this);
+                CadastroActivity.novoSneaker(this, REQUEST_NOVO_SNEAKERS);
                 return true;
 
             case R.id.menuItemSobre:
                 SobreActivity.sobre(this);
+                return true;
+
+            case R.id.menuItemNovo:
+                verificaTipos();
                 return true;
 
             default:
